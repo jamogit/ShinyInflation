@@ -20,6 +20,7 @@ library(shinydashboard)
 library(geofi)
 library(rjstat)
 library(shinycssloaders)
+library(stringr)
 
 
 # Define UI for application that draws a histogram
@@ -152,7 +153,7 @@ ui <- fluidPage(
                HTML("<div class='pxwebcite'>https://sampo.thl.fi/pivot/prod/fi/epirapo/covid19case/fact_epirapo_covid19case</div>"),
                HTML("<div class='pxwebcite'>https://pxnet2.stat.fi/PXWeb/pxweb/fi/</div>"),
                HTML("<div class='pxwebcite'>Mans Magnusson, Markus Kainu, Janne Huovari, and Leo Lahti (rOpenGov).  pxweb: R tools for PXWEB API.  URL: http://github.com/ropengov/pxweb</div>"),
-               HTML("<div class='pxwebcite'>CC4.0 license</div>"),
+               HTML("<div class='pxwebcite'>Data is licensed under: Attribution 4.0 International (CC BY 4.0)</div>")
                )
     )
 )
@@ -217,12 +218,15 @@ server <- function(input, output) {
       ) %>%
       filter(
         Quarter == max(Quarter)
-      ) %>%
+      )
+    df.exp_country <- df.exp_country %>%
       filter(
-        IsNumeric != "NA"
-      ) %>%
-      top_n(n = 10, wt = df.exp_country$`Income, millions of euro`) %>%
+        df.exp_country$IsNumeric != "NA"
+      )
+    df.exp_country <- top_n(df.exp_country, n = 10, wt = df.exp_country$`Income, millions of euro`)
+    df.exp_country <- df.exp_country %>%
       inner_join(as.data.frame(px_data.exp_country$pxweb_metadata[[2]][[2]]), by = c("Country" = "values"))
+    
     cite.exp_country <- px_data.exp_country$metadata[[1]]$source
     
     ###################################
@@ -307,7 +311,8 @@ server <- function(input, output) {
     ############    
     pxweb_query_list.labour <- list("Vuosi"=c("*"), "Sukupuoli"=c("SSS"), "Suuralue 2012"=c("SSS"), "Tiedot"=c("Vaesto","Tyovoima","Tyolliset","Tyottomat","Tyov_kuulumattomat","tyovoimaosuus","Tyollisyysaste_15_64","Tyottomyysaste"))
     px_data.labour <- pxweb_get(url = "https://pxnet2.stat.fi/PXWeb/api/v1/en/StatFin/tym/tyti/vv/statfin_tyti_pxt_13ak.px", query = pxweb_query_list.labour)
-    df.labour <- as.data.frame(px_data.labour, column.name.type = "text", variable.value.type = "text") %>%
+    df.labour <- as.data.frame(px_data.labour, column.name.type = "text", variable.value.type = "text")
+    df.labour <- df.labour %>%
       filter(
         df.labour$Year == max(Year)
       )
@@ -346,10 +351,11 @@ server <- function(input, output) {
     ## MAP ##
     #########
 
-    finmap <- get_municipalities(year = 2020) %>%
+    finmap <- get_municipalities(year = 2020)
+    finmap <- finmap %>%
       transmute(
-        geom = d1$geom,
-        vuosi = d1$vuosi
+        geom = finmap$geom,
+        vuosi = finmap$vuosi
       )
 
     
