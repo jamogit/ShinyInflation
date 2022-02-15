@@ -1,0 +1,14 @@
+name: FinlandsEconomyInFigures
+title: FinlandsEconomyInFigures
+username:
+account: janmoilanenek
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5660651
+bundleId: 5582326
+url: https://janmoilanenek.shinyapps.io/FinlandsEconomyInFigures/
+when: 1644953294.00018
+lastSyncTime: 1644953294.00018
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: maps.R
