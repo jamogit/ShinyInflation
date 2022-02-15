@@ -39,7 +39,7 @@ ui <- fluidPage(
       ),
       column(8,
              HTML("<h1 style='text-align:left;font-style:italic;'>Finland's Economy in Figures</h1>"),
-             HTML("<p style='text-align:left;font-style:italic;'>TT `95 style Dashboard</p>")
+             HTML("<p style='text-align:left;font-style:italic;'>Dashboard in the spirit of Teollisuuden työnantajat TT's print publication from 1995</p>")
              ),
       column(2)
     ),
