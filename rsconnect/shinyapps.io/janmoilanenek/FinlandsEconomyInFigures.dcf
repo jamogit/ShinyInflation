@@ -5,10 +5,9 @@ account: janmoilanenek
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5660651
-bundleId: 5582941
-url: https://janmoilanenek.shinyapps.io/FinlandsEconomyInFigures/
-when: 1644963480.16638
-lastSyncTime: 1644963480.16638
+bundleId: 5654030
+url: https://ek-shinydashboards.shinyapps.io/FinlandsEconomyInFigures/
+when: 1646691216.44178
+lastSyncTime: 1646691216.44178
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: maps.R

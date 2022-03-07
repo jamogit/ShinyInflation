@@ -1,0 +1,11 @@
+BOP item;Country;Quarter;Income, millions of euro;Year;IsNumeric;code;text;valueTexts;elimination;time
+GS;528;2021Q3;1493;2021;528;Maa;Country;Netherlands;FALSE;FALSE
+GS;826;2021Q3;1178;2021;826;Maa;Country;United Kingdom;FALSE;FALSE
+GS;372;2021Q3;667;2021;372;Maa;Country;Ireland;FALSE;FALSE
+GS;156;2021Q3;1140;2021;156;Maa;Country;China;FALSE;FALSE
+GS;250;2021Q3;709;2021;250;Maa;Country;France;FALSE;FALSE
+GS;752;2021Q3;3170;2021;752;Maa;Country;Sweden;FALSE;FALSE
+GS;276;2021Q3;2085;2021;276;Maa;Country;Germany;FALSE;FALSE
+GS;643;2021Q3;1099;2021;643;Maa;Country;Russian Federation;FALSE;FALSE
+GS;233;2021Q3;782;2021;233;Maa;Country;Estonia;FALSE;FALSE
+GS;840;2021Q3;2859;2021;840;Maa;Country;United States;FALSE;FALSE
